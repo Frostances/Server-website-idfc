@@ -3,392 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hear us /idfc server</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Responsive Website</title>
     <style>
+        /* Base styles */
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: black;
-            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
+            color: #333;
         }
+
         h1 {
-            margin: 0;
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+
+        .server-logo {
+            width: 200px;
+            height: 200px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .server-text {
             font-size: 2rem;
             text-align: center;
-            padding: 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: linear-gradient(90deg, grey, white);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient 3s infinite;
+            margin: 10px 0;
         }
-        @keyframes gradient {
-            0% {
-                background-position: 0%;
-            }
-            100% {
-                background-position: 100%;
-            }
+
+        .sub-text {
+            font-size: 1rem;
+            text-align: center;
+            color: #555;
         }
+
         .button-container {
             display: flex;
-            justify-content: center;
-            align-items: center;
             gap: 20px;
-            margin-top: 40px;
+            margin: 20px 0;
         }
+
         button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 1rem;
             padding: 10px 20px;
+            font-size: 1rem;
             border: none;
-            border-radius: 25px;
             background-color: #007bff;
-            color: white;
+            color: #fff;
+            border-radius: 5px;
             cursor: pointer;
-            gap: 10px;
-            width: 150px;
-            height: 50px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
-        button i {
-            font-size: 1.2rem;
-        }
+
         button:hover {
             background-color: #0056b3;
         }
-        .server-logo {
-            position: absolute;
-            top: 50%;
-            left: calc(50% - 120px);
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: url('https://cdn.discordapp.com/icons/1153027665419325650/b5c3db38fae47e0edb3b314e6140feaf.png?size=1024') no-repeat center center;
-            background-size: cover;
-            transition: transform 1s ease, opacity 1s ease;
-        }
-        .server-text {
-            position: absolute;
-            top: 50%;
-            left: calc(50% + 80px);
-            transform: translateY(-50%);
-            font-size: 2rem;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: bold;
-            letter-spacing: 1px;
-            transition: opacity 1s ease;
-        }
-        .sub-text {
-            position: absolute;
-            top: 62%;
-            left: calc(50% + 80px);
-            transform: translateY(-50%);
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: normal;
-            transition: opacity 1s ease;
-        }
-        .page-container {
-            display: none;
-            text-align: center;
-            color: white;
-            padding: 20px;
-            font-size: 1.2rem;
-        }
+
         .box {
-            margin: 20px auto;
-            padding: 20px;
             width: 80%;
-            max-width: 600px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-            position: relative;
-            animation: fadeIn 1s ease-out;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px 0;
         }
-        .box:hover {
-            border: 2px solid white;
-        }
+
         .box-title {
             font-size: 1.5rem;
-            font-weight: bold;
             margin-bottom: 10px;
         }
+
         .box-description {
             font-size: 1rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: #555;
         }
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
+
+        /* Responsive styles */
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 1.8rem;
             }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+            .server-logo {
+                width: 180px;
+                height: 180px;
             }
-        }
-        .go-back-btn {
-            display: inline-block;
-            background-color: #007bff;
-            font-size: 1rem;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            color: white;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-            width: auto;
-            height: 50px;
-        }
-        .go-back-btn:hover {
-            background-color: #0056b3;
-        }
-        .go-back-btn i {
-            font-size: 1.2rem;
-            margin-right: 10px;
-        }
-        .hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .best-com-text {
-            position: absolute;
-            top: 40px; /* Adjusted top position */
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.2rem;
-            color: white; /* Increased visibility */
-            font-weight: bold;
-            pointer-events: none;
-            opacity: 1; /* Increased opacity */
-            animation: fadeInOut 10s infinite;
-        }
-        @keyframes fadeInOut {
-            0% {
-                opacity: 0;
+            .server-text {
+                font-size: 1.8rem;
             }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
+            .sub-text {
+                font-size: 0.9rem;
             }
         }
-        .discord-logo {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 50px;
-            height: 50px;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/5/53/Discord_logo_2023.svg') no-repeat center center;
-            background-size: contain;
-            transition: transform 0.3s ease;
+
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .button-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            button {
+                width: 140px;
+                height: 45px;
+                font-size: 0.9rem;
+            }
+            .server-logo {
+                width: 150px;
+                height: 150px;
+            }
+            .server-text {
+                font-size: 1.5rem;
+            }
+            .sub-text {
+                font-size: 0.8rem;
+            }
+            .box {
+                width: 90%;
+            }
         }
-        .discord-logo:hover {
-            transform: scale(1.1);
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.4rem;
+            }
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            button {
+                width: 120px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+            .server-logo {
+                width: 130px;
+                height: 130px;
+            }
+            .server-text {
+                font-size: 1.4rem;
+            }
+            .sub-text {
+                font-size: 0.7rem;
+            }
+            .box {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.2rem;
+                padding: 5px 0;
+            }
+            .server-logo {
+                width: 100px;
+                height: 100px;
+            }
+            .server-text {
+                font-size: 1.2rem;
+            }
+            .sub-text {
+                font-size: 0.6rem;
+            }
+            button {
+                width: 100px;
+                height: 35px;
+                font-size: 0.7rem;
+            }
+            .box-title {
+                font-size: 1.2rem;
+            }
+            .box-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1rem;
+            }
+            .button-container {
+                flex-direction: column;
+                gap: 5px;
+            }
+            button {
+                width: 90px;
+                height: 30px;
+                font-size: 0.6rem;
+            }
+            .server-logo {
+                width: 80px;
+                height: 80px;
+            }
+            .server-text {
+                font-size: 1rem;
+            }
+            .sub-text {
+                font-size: 0.5rem;
+            }
+            .box-title {
+                font-size: 1rem;
+            }
+            .box-description {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>
-        <i class="fab fa-discord"></i> Hear us /idfc server
-    </h1>
-    <div class="best-com-text">Best COM server</div>
+    <h1>Welcome to My Responsive Website</h1>
+    <div class="server-logo">Logo</div>
+    <div class="server-text">Server Info</div>
+    <div class="sub-text">This is a responsive design example</div>
     <div class="button-container">
-        <a href="https://discord.gg/v2E24TJpBr" target="_blank">
-            <button>
-                <i class="fas fa-user-plus"></i> Join us now
-            </button>
-        </a>
-        <button id="team-btn">
-            <i class="fas fa-users"></i> Team
-        </button>
-        <button id="about-us-btn">
-            <i class="fas fa-info-circle"></i> About us
-        </button>
-        <button id="booster-features-btn">
-            <i class="fas fa-star"></i> Booster Features
-        </button>
+        <button>Button 1</button>
+        <button>Button 2</button>
+        <button>Button 3</button>
     </div>
-    <div class="server-logo"></div>
-    <div class="server-text">Hear us /idfc</div>
-    <div class="sub-text">Since 2023 | More than 1k members</div>
-
-    <!-- About Us Section -->
-    <div class="page-container" id="about-container">
-        <div class="box">
-            <div class="box-title">What is the server about?</div>
-            <div class="box-description">/idfc is a community hangout & multicom-com server to meet new people and vibe. We also host events & giveaways and night activities. Invite friend groups/clans for roles and prizes!</div>
-        </div>
-        <div class="box">
-            <div class="box-title">What categories does the server have?</div>
-            <div class="box-description">Social, pfp and banner and bios ideas, male and female posts, arts, and giveaways.</div>
-        </div>
-        <div class="box">
-            <div class="box-title">What are the server rules?</div>
-            <div class="box-description">
-                Be respectful. This means no mean, rude, or harassing comments.<br>
-                No sending or streaming pornographic/adult/other NSFW material.<br>
-                No dm advertising or advertising servers.<br>
-                No offensive names and profile pictures.<br>
-                No server raiding.<br>
-                Threats are forbidden.<br>
-                No doxxing. This means no leaking faces or private stuff of a person.
-            </div>
-        </div>
-        <button class="go-back-btn" id="go-back-btn-about">
-            <i class="fas fa-arrow-left"></i> Go back
-        </button>
+    <div class="box">
+        <div class="box-title">Box Title</div>
+        <div class="box-description">This is a description of the box content. Resize your browser to see the responsive effect.</div>
     </div>
-
-    <!-- Team Section -->
-    <div class="page-container" id="team-container">
-        <div class="box">
-            <div class="box-title">Team</div>
-            <div class="box-description">Coming soon...</div>
-        </div>
-        <button class="go-back-btn" id="go-back-btn-team">
-            <i class="fas fa-arrow-left"></i> Go back
-        </button>
-    </div>
-
-    <!-- Booster Features Section -->
-    <div class="page-container" id="booster-container">
-        <div class="box">
-            <div class="box-title">Chat Perms</div>
-            <div class="box-description">
-                As a server booster, you'll get access to the following chat perms:
-                <ul>
-                    <li>55% level-up boost</li>
-                    <li>Get pic perms and join giveaways without putting /idfc in your status or loyal role</li>
-                    <li>Get wealthy role as an award</li>
-                    <li>Have your own custom role that can be customized anytime with commands</li>
-                    <li>Use more bleed commands, avatar, banner, snipe, fyp, and more...</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="box-title">Voice Chat Perms</div>
-            <div class="box-description">
-                As a server booster, you'll get the following voice chat permissions:
-                <ul>
-                    <li>Voice chat perms</li>
-                    <li>Use soundboards</li>
-                    <li>More mods in private VC channels</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="box-title">How to customize my Booster role?</div>
-            <div class="box-description">
-                <ul>
-                    <li><code>,br {name}</code> (creates the role for you)</li>
-                    <li><code>,br rename {name}</code> (renames the role for you)</li>
-                    <li><code>,br color {hex code}</code> (colors the role for you)</li>
-                    <li><code>,br dominant</code> (matches role color with your pfp)</li>
-                    <li><code>,br icon {emoji}</code> (makes the badge for your role)</li>
-                    <li><code>,br random</code> (sets a random color for your role)</li>
-                </ul>
-            </div>
-        </div>
-
-        <button class="go-back-btn" id="go-back-btn-booster">
-            <i class="fas fa-arrow-left"></i> Go back
-        </button>
-    </div>
-
-    <script>
-        // About Us Button functionality
-        document.getElementById('about-us-btn').addEventListener('click', function() {
-            const logo = document.querySelector('.server-logo');
-            logo.style.transform = 'translate(-50%, -50%) scale(0.5) translateX(-150px)';
-            logo.style.opacity = '0';
-            
-            document.querySelector('.server-text').style.opacity = '0';
-            document.querySelector('.sub-text').style.opacity = '0';
-            
-            document.getElementById('about-container').style.display = 'block';
-        });
-
-        // Team Button functionality
-        document.getElementById('team-btn').addEventListener('click', function() {
-            const logo = document.querySelector('.server-logo');
-            logo.style.transform = 'translate(-50%, -50%) scale(0.5) translateX(150px)';
-            logo.style.opacity = '0';
-            
-            document.querySelector('.server-text').style.opacity = '0';
-            document.querySelector('.sub-text').style.opacity = '0';
-            
-            document.getElementById('team-container').style.display = 'block';
-        });
-
-        // Booster Features Button functionality
-        document.getElementById('booster-features-btn').addEventListener('click', function() {
-            const logo = document.querySelector('.server-logo');
-            logo.style.transform = 'translate(-50%, -50%) scale(0.5) translateX(-150px)';
-            logo.style.opacity = '0';
-            
-            document.querySelector('.server-text').style.opacity = '0';
-            document.querySelector('.sub-text').style.opacity = '0';
-            
-            document.getElementById('booster-container').style.display = 'block';
-        });
-
-        // Go Back Button (About Us) functionality
-        document.getElementById('go-back-btn-about').addEventListener('click', function() {
-            const logo = document.querySelector('.server-logo');
-            logo.style.transform = 'translate(-50%, -50%) scale(1) translateX(0)';
-            logo.style.opacity = '1';
-            
-            document.querySelector('.server-text').style.opacity = '1';
-            document.querySelector('.sub-text').style.opacity = '1';
-            
-            document.getElementById('about-container').style.display = 'none';
-        });
-
-        // Go Back Button (Team) functionality
-        document.getElementById('go-back-btn-team').addEventListener('click', function() {
-            const logo = document.querySelector('.server-logo');
-            logo.style.transform = 'translate(-50%, -50%) scale(1) translateX(0)';
-            logo.style.opacity = '1';
-            
-            document.querySelector('.server-text').style.opacity = '1';
-            document.querySelector('.sub-text').style.opacity = '1';
-            
-            document.getElementById('team-container').style.display = 'none';
-        });
-
-        // Go Back Button (Booster) functionality
-        document.getElementById('go-back-btn-booster').addEventListener('click', function() {
-            const logo = document.querySelector('.server-logo');
-            logo.style.transform = 'translate(-50%, -50%) scale(1) translateX(0)';
-            logo.style.opacity = '1';
-            
-            document.querySelector('.server-text').style.opacity = '1';
-            document.querySelector('.sub-text').style.opacity = '1';
-            
-            document.getElementById('booster-container').style.display = 'none';
-        });
-    </script>
-
-    <!-- Discord Link -->
-    <a href="https://discord.com/" target="_blank">
-        <div class="discord-logo"></div>
-    </a>
 </body>
 </html>
